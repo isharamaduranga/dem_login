@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const API = import.meta.env.VITE_API_URL || 'http://localhost:8081/api';
+const API = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? '/api' : 'http://localhost:8081/api');
 
 export default function App() {
     const [mode, setMode] = useState('signup');

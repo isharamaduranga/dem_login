@@ -20,22 +20,24 @@ Requirements: Java 17+, Maven, Node.js/npm, and local MySQL Server. Make sure th
 
 Hibernate creates the `demo_auth` database and `demo_users` table automatically with the current local settings.
 
-Terminal 1:
+In IntelliJ, open `backend/src/main/java/com/example/demo/DemoApplication.java` and click Run next to `main`. When the console shows `Started DemoApplication`, the API is ready on port 8081. Keep it running.
+
+If you have Maven on your PATH, you can also start the backend from PowerShell:
 
 ```powershell
 cd D:\Test\backend
-mvn clean spring-boot:run
+mvn spring-boot:run
 ```
 
-Terminal 2:
+In a separate PowerShell terminal, start the frontend:
 
 ```powershell
 cd D:\Test\frontend
-npm install
-npm run dev
+npm.cmd install
+npm.cmd run dev
 ```
 
-Open `http://localhost:5173`.
+Open the Local URL printed by Vite (normally http://localhost:5174). This is the signup and login page. Vite forwards requests under `/api` to Spring Boot on port 8081.
 
 ## Flow to explain
 
