@@ -43,13 +43,7 @@ Open the Local URL printed by Vite (normally http://localhost:5174). This is the
 
 1. Import the `dem_login` GitHub repository in Vercel. If it is missing, use **Adjust GitHub App Permissions** to grant Vercel access to this repository.
 2. Set **Root Directory** to `frontend` and click **Deploy**. The Vercel configuration in that directory builds the Vite app into `dist`. Leave `VITE_API_URL` unset to use the local API at `http://localhost:8081/api`.
-3. Copy the frontend's production origin from Vercel, including `https://` and omitting the trailing slash. In IntelliJ, set the `FRONTEND_ORIGIN` environment variable for the backend run configuration to that origin and restart the backend. For Maven in PowerShell, run the following with your own origin:
-
-   ```powershell
-   cd D:\Test\backend
-   $env:FRONTEND_ORIGIN = 'https://your-project.vercel.app'
-   mvn spring-boot:run
-   ```
+3. Restart the local backend to load the CORS settings. The default production origin is `https://dem-login.vercel.app`. If you deploy to a different domain, set `FRONTEND_ORIGIN` in the backend run configuration to the exact HTTPS origin without a trailing slash and restart.
 
 4. Open that Vercel URL on the PC running Spring Boot and MySQL. Allow local network access if the browser prompts, then test signup and login. Each browser resolves `localhost` to its own device. For users on other devices, set `VITE_API_URL` in Vercel to a reachable HTTPS API URL ending in `/api` and redeploy.
 
